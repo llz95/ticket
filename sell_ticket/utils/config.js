@@ -15,8 +15,17 @@ var DOWNLOADDOMAIN = [	// 信任下载域名
 var INDEXNAVIGATION = [ //首页图标导航，'id' 为导航的Id，可以自定义，'name'为名称，'image'为图标路径，'url' 为跳转页面
   { id: '1', name: '景点', image: '../../images/Attractions.png', url: '../list/list?id=2'},
   { id: '2', name: '美食', image: '../../images/Foods.png', url: '../list/list?id=3'},
-  { id: '3', name: '攻略', image: '../../images/Travels.png', url: '../list/list?id=4'},
+  { id: '3', name: '电影', image: '../../images/Travels.png', url: '../list/list?id=4'},
   { id: '4', name: '游记', image: '../../images/Strategy.png', url: '../list/list?id=1'}
+]
+
+
+var ORDERTOPLIST = [ //订单图标导航，'id' 为导航的Id，可以自定义，'name'为名称，'image'为图标路径，'url' 为跳转页面
+  { id: '1', name: '待付款', image: '../../images/Attractions.png', url: '../orderinfo/orderinfo?id=2' },
+  { id: '2', name: '待评价', image: '../../images/Foods.png', url: '../orderinfo/orderinfo?id=3' },
+  { id: '3', name: '待使用', image: '../../images/Travels.png', url: '../orderinfo/orderinfo?id=4' },
+  { id: '4', name: '全部订单', image: '../../images/Strategy.png', url: '../orderinfo/orderinfo?id=1' },
+  { id: '5', name: '退款/售后', image: '../../images/Strategy.png', url: '../orderinfo/orderinfo?id=4' }
 ]
 
 export default {
@@ -30,5 +39,6 @@ export default {
   getQrcodePath:QRCODEPATH,
   getNavigation: INDEXNAVIGATION,
   getDownloadDomain: DOWNLOADDOMAIN,
-  getReplayTemplateId: REPLAYTEMPPLATEID
+  getReplayTemplateId: REPLAYTEMPPLATEID,
+  getTopList:ORDERTOPLIST
 }

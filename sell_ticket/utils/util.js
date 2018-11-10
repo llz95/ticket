@@ -1,12 +1,37 @@
-/*
- * 
- * WordPres Mini APP For Travel
- * Author: 艾码汇
- * Github:  https://github.com/dchijack/WordPress-MinAPP-For-Travel
- * 技术支持：https://www.imahui.com  微信公众号：WordPress(搜索微信号：WPGeek)
- * 
- */
+
 /** 定义函数 **/
+function DoLoginInServer(app, callback) {
+  wx.login({
+    success: function (res) {
+      wx.request({
+        //获取openid接口
+        url: 'https://api.weixin.qq.com/sns/jscode2session',
+        data: {
+          appid: "wx7e05b765c866ecb4",
+          secret: "c30c734366df28c20c7d4ef3ba5525ad",
+          js_code: res.code,
+          grant_type: 'authorization_code'
+        },
+        method: 'GET',
+        success: function (res) {
+          app.globalData.openid = res.data.openid;
+          wx.getUserInfo({
+            success: function (res) {
+              app.globalData.userInfo = res.userInfo;
+            }
+          })
+
+        }
+      })
+    }
+  })
+}
+
+
+
+
+
+
 function formatTime(date) {
   var year = date.getFullYear()
   var month = date.getMonth() + 1
@@ -286,6 +311,7 @@ module.exports = {
   getDateOut:getDateOut,
   AddHTTPS: AddHTTPS,
   drawTitleExcerpt: drawTitleExcerpt,
-  getStrLength: getStrLength
+  getStrLength: getStrLength,
+  DoLoginInServer : DoLoginInServer
 }
 

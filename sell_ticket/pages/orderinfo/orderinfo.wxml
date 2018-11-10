@@ -1,0 +1,50 @@
+
+<!--pages/hot/hot.wxml-->
+
+<view class="top-bar">
+  <block wx:for="{{tabsItems}}" wx:key="id">
+      <view class="top-bar-item {{item.selected ?'top-bar-item-Selected':''}}"catchtap="onTapTag"id="{{item.id}}">{{item.name}}</view>
+  </block>
+</view>
+
+<view class='myorder'>
+ <block wx:if="{{hasitmes}}">
+  <!-- 最近订单列表 -->
+  <view wx:key="id" wx:for="{{postsList}}">
+    <view class='myorder-item'>
+
+      <view class='myorder-head'>
+        <image class='head-icon' src='../../images/order-icon.png'></image>
+        智游旅行<text class='myorder-state'>{{item.state}}</text>
+      </view>
+
+      <view class='myorder-title'>
+          <image class='title-image' src='{{item.image}}'></image>
+          <text class='title'>{{item.title}}</text>
+          <image class='more' src='../../images/more.png'></image>
+      </view>
+
+      <view class='myorder-info'>
+      <text class='info'>数量：{{item.count}}</text>
+      <text class='info'>使用时间：{{item.date}} 至 {{item.deadline}}</text>
+      <text class='info'>总价：¥{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+  </block>
+ 
+<block wx:else>
+<view class='no'>
+<image class='no-image' src='../../images/none-order.png'></image>
+<text class='notext' style='font-size:38rpx'>暂无订单</text>
+<text class='notext' style='font-size:30rpx;margin-top:15rpx;color:gray'>可以去看看哪些景点好玩</text>
+<button class='nobutton'>随便看看</button>
+</view>
+
+
+</block>
+
+
+
+
+</view>

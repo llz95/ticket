@@ -26,7 +26,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    openid: '',
+    openid: null,
     isGetUserInfo: false,
     isGetOpenid: false
   }

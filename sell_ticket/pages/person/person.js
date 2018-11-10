@@ -16,7 +16,8 @@ Page({
     telphone:"4008850663",
     pagelist: [],
     loginModal: true,
-    userInfo: app.globalData.userInfo,
+    userInfo: null,
+    openid:app.globalData.openid,
     s:null
   },
   /**
@@ -24,14 +25,12 @@ Page({
    */
   onLoad: function (options) {
     var self = this;
-    if (!app.globalData.isGetOpenid) {
-      self.getUserInfo();
-    } else {
+    console.log(app.globalData.userInfo)
       self.setData({
-        userInfo: app.globalData.userInfo
+        userInfo: app.globalData.userInfo,
+        openid:app.globalData.openid
       });
-    }
-    self.fetchPostsData();
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -121,176 +120,8 @@ Page({
         });
       })
   },
-  /**
-   * 用户授权查询
-   */
-  userAuthorization: function () {
-    var self = this;
-    // 判断是否是第一次授权，非第一次授权且授权失败则进行提醒
-    wx.getSetting({
-      success: function success(res) {
-        console.log(res.authSetting);
-        var authSetting = res.authSetting;
-        if (!('scope.userInfo' in authSetting)) {
-          console.log('第一次授权');
-          self.setData({ loginModal: true })
-        } else {
-          console.log('不是第一次授权', authSetting);
-          // 没有授权的提醒
-          if (authSetting['scope.userInfo'] === false) {
-            wx.showModal({
-              title: '用户未授权',
-              content: '如需正常使用评论、点赞、赞赏等功能需授权获取用户信息。是否在授权管理中选中“用户信息”?',
-              showCancel: true,
-              cancelColor: '#296fd0',
-              confirmColor: '#296fd0',
-              confirmText: '设置权限',
-              success: function (res) {
-                if (res.confirm) {
-                  console.log('用户点击确定')
-                  wx.openSetting({
-                    success: function success(res) {
-                      console.log('打开设置', res.authSetting);
-                      var scopeUserInfo = res.authSetting["scope.userInfo"];
-                      if (scopeUserInfo) {
-                        auth.getUsreInfo(null);
-                      }
-                    }
-                  });
-                }
-              }
-            })
-          } else {
-            auth.getUsreInfo(null);
-          }
-        }
-      }
-    });
-  },
-  /**
-   * 同意授权信息
-   */
-  bindGetUserinfo: function (e) {
-    var userInfo = e.detail.userInfo;
-    var self = this;
-    if (userInfo) {
-      auth.getUsreInfo(e.detail);
-      self.setData({ userInfo: userInfo, loginModal: false })
-    }
-    setTimeout(function () {
-      self.setData({ loginModal: false })
-    }, 1200);
-  },
-  /**
-   * 弹出框蒙层截断 touchmove 事件
-   */
-  preventTouchMove: function () {
+ 
 
-  },
-  /**
-   * 隐藏模态对话框
-   */
-  hideModal: function () {
-    this.setData({
-      loginModal: false
-    });
-  },
-  /**
-   * 对话框取消按钮点击事件
-   */
-  onCancel: function () {
-    this.hideModal();
-  },
-  /**
-  * 获取用户信息
-  */
-  // getUsreInfo: function () {
-  //   var self = this;
-  //   var wxLogin = wxApi.wxLogin();
-  //   var jscode = '';
-  //   wxLogin().then(response => {
-  //     jscode = response.code
-  //     var wxGetUserInfo = wxApi.wxGetUserInfo()
-  //     return wxGetUserInfo()
-  //   })
-  //     //获取用户信息
-  //     .then(response => {
-  //       console.log(response.userInfo);
-  //       console.log("成功获取用户信息(公开信息)");
-  //       app.globalData.userInfo = response.userInfo;
-  //       app.globalData.isGetUserInfo = true;
-  //       self.setData({
-  //         userInfo: response.userInfo
-  //       });
-        
-  //       var url = 'https://api.weixin.qq.com/sns/jscode2session';
-  //       // var data = {
-  //       //   appid: "wx7e05b765c866ecb4",
-  //       //   secret: "801a35d1f01da31edd72d048b54aa20f",
-  //       //   js_code: response.code,
-  //       //   grant_type: 'authorization_code'
-  //       // }
-  //       // var postOpenidRequest = wxRequest.postRequest(url, data);
-  //       //获取openid
-  //       postOpenidRequest.then(response => {
-  //         var data = {
-  //           appid: "wx7e05b765c866ecb4",
-  //           secret: "801a35d1f01da31edd72d048b54aa20f",
-  //           js_code: response.code,
-  //           grant_type: 'authorization_code'
-  //         }
-  //         var postOpenidRequest = wxRequest.postRequest(url, data);
-  //         if (response.data.status == '200') {
-  //           console.log("openid 获取成功");
-  //           app.globalData.openid = response.data.openid;
-  //           app.globalData.isGetOpenid = true;
-  //         } else {
-  //           console.log(response.data.message);
-  //         }
-  //       })
-  //     }).catch(function (error) {
-  //       console.log('error: ' + error.errMsg);
-  //       self.userAuthorization();
-  //     })
-  // },
-  getUserInfo:function(){
-    var self = this;
-    wx.login({
-      success: function (res) {
-        wx.request({
-          //获取openid接口
-          url: 'https://api.weixin.qq.com/sns/jscode2session',
-          data: {
-            appid: "wx7e05b765c866ecb4",
-            secret: "801a35d1f01da31edd72d048b54aa20",
-            js_code: res.code,
-            grant_type: 'authorization_code'
-          },
-          method: 'GET',
-          success: function (res) {
-            console.log("openid 获取成功");
-            app.globalData.openid = res.data.openid;
-            console.log(res)
-            app.globalData.isGetOpenid = true;
-            wx.getUserInfo({
-              success: function (res) {
-                console.log(res.userInfo);
-                console.log("成功获取用户信息(公开信息)");
-                app.globalData.userInfo = res.userInfo;
-                app.globalData.isGetUserInfo = true;
-                self.setData({
-                  userInfo: res.userInfo
-                })
-              }
-            })
-
-          }
-        })
-      }
-    })
-
-
-  },
   /**
   * 确认数据
   */

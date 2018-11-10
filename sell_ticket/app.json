@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/detail/detail",
     "pages/logs/logs",
@@ -8,11 +8,13 @@
     "pages/person/person",
     "pages/hot/hot",
     "pages/rand/rand",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/order/order",
+    "pages/orderinfo/orderinfo"
   ],
-  "window":{
+  "window": {
     "backgroundTextStyle": "dark",
-	  "backgroundColor":"#14B9C8",
+    "backgroundColor": "#14B9C8",
     "navigationBarBackgroundColor": "#14B9C8",
     "navigationBarTitleText": "智游宝",
     "navigationBarTextStyle": "white"
@@ -40,6 +42,12 @@
         "iconPath": "images/ranking.png",
         "selectedIconPath": "images/ranking-o.png",
         "text": "榜单"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "iconPath": "images/order.png",
+        "selectedIconPath": "images/order-o.png",
+        "text": "订单"
       },
       {
         "pagePath": "pages/person/person",

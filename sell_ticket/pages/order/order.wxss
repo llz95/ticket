@@ -1,0 +1,123 @@
+/* pages/order/order.wxss */
+
+.navigation {
+  display: flex;
+  padding: 10rpx 0;
+  /* background: red; */
+  justify-content: space-around;
+  margin: 10rpx 20rpx;
+  border-radius: 20rpx;
+  
+}
+.navigation-item {
+  text-align: center;
+  border-radius: 20rpx;
+
+}
+.navigation-item image {
+  width: 81rpx;
+  height: 81rpx;
+}
+.navigation-item text {
+  color: #333333;
+  line-height: 16rpx;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.myorder{
+
+  margin: 30rpx 20rpx;
+}
+.myorder-text{
+  font-size: 40rpx;
+  font-weight: bold
+}
+
+
+
+.myorder-item{
+  /* background-color: red; */
+  margin: 40rpx 0rpx;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  border: 1rpx solid #eee;
+
+}
+
+.myorder-head{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+    color:black;
+  font-size: 28rpx;
+   /* background-color: yellow; */
+
+}
+
+.head-icon{
+    width: 70rpx;
+  height: 70rpx;
+}
+.myorder-state{
+  margin-left: 380rpx;
+  font-size: 30rpx;
+
+}
+.myorder-title{
+    display: flex;
+  align-items: center;
+    color:black;
+  
+   font-weight: 600;
+   /* background-color: yellowgreen; */
+}
+.title-image{
+  margin-left: 10rpx;
+  width: 120rpx;
+  height: 110rpx;
+}
+.more{
+  width: 33rpx;
+  height: 33rpx;
+}
+
+.title{
+  margin-left: 30rpx;
+    display: -webkit-box; 
+  /*规定子元素的排列方向 */
+  -webkit-box-orient: vertical; 
+   /*限制文本显示的行数  */
+  -webkit-line-clamp:1;
+  /*实现多余的文字隐藏并用省略号来代表被隐藏的文字  */
+  overflow: hidden;
+  text-overflow:ellipsis;
+  /* background-color: white; */
+  font-size: 33rpx;
+
+
+}
+
+
+.myorder-info{
+    display: flex;
+  flex-direction: column;
+  margin-left: 135rpx;
+  /* background-color: white */
+}
+.info{
+  margin-top: 10rpx;
+  color: gray;
+  font-size: 30rpx;
+}
+
+.more-order{
+  margin-top: -10rpx;
+  /* background-color: red; */
+  font-size: 30rpx;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #588986
+}
+
