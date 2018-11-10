@@ -1,0 +1,73 @@
+
+<template name="List">
+  <view class="list">
+    <block wx:key="id" wx:for="{{postsList}}">
+      <view class="list-item" index="{{index}}" id="{{item.id}}" bindtap="redictDetail">
+	      <view class="content">
+          <image wx:if="{{item.thumbnail}}" src="{{item.thumbnail}}" mode="aspectFill" class="cover"></image>
+          <image wx:else src="{{item.meta.thumbnail}}" mode="aspectFill" class="cover"></image>
+          <view class="title">
+            <text>{{item.title.rendered}}</text>
+          </view>
+          <view class="information">
+            <view class="meta">
+              <image src="../../images/category-o.png"></image>
+              <text>{{item.category}}</text>
+            </view>
+            <view class="meta">
+              <image src="../../images/views-o.png"></image>
+              <text wx:if="{{item.views}}">{{item.views}}</text>
+              <text wx:else>{{item.meta.views}}</text>
+            </view>
+            <view class="meta">
+              <image src="../../images/comments-o.png"></image>
+              <text>{{item.comments}}</text>
+            </view>
+            <view class="meta">
+              <image src="../../images/heart-o.png"></image>
+              <text>{{item.thumbses}}</text>
+            </view>
+          </view>
+		    </view>
+      </view>
+    </block>
+  </view>  
+</template>
+
+
+
+
+<template name="List2">
+  <view class="list">
+    <block wx:key="id" wx:for="{{postsList}}">
+      <view class="list-item" index="{{index}}" id="{{item.id}}" bindtap="redictDetail">
+	      <view class="content">
+          <image wx:if="{{item.image}}" src="{{item.image}}" mode="aspectFill" class="cover"></image>
+          <image wx:else src="{{item.meta.thumbnail}}" mode="aspectFill" class="cover"></image>
+          <view class="title">
+            <text>{{item.name}}</text>
+          </view>
+          <view class="information">
+            <view class="meta">
+              <image src="../../images/category-o.png"></image>
+              <text>{{item.category}}</text>
+            </view>
+            <view class="meta">
+              <image src="../../images/views-o.png"></image>
+              <text wx:if="{{item.views}}">{{item.views}}</text>
+              <text wx:else>{{item.meta.views}}</text>
+            </view>
+            <view class="meta">
+              <image src="../../images/comments-o.png"></image>
+              <text>{{item.comments}}</text>
+            </view>
+            <view class="meta">
+              <image src="../../images/heart-o.png"></image>
+              <text>{{item.thumbses}}</text>
+            </view>
+          </view>
+		    </view>
+      </view>
+    </block>
+  </view>  
+</template>

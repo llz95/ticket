@@ -1,0 +1,99 @@
+<!--index.wxml-->
+<import src="../../templates/common.wxml" />
+<import src="../../templates/footer.wxml" />
+<form catchsubmit="formSubmit" catchreset="formReset" id="search-form">
+  <view class="search-pancel">
+    <input value="" id="search-input" name="input" confirm-type="search" class="search-input" placeholder=" 搜索你感兴趣的内容..." bindconfirm="formSubmit"></input>
+    <button class="search-button" form-type="submit" size="mini" plain="true">
+      <icon type="search" color="#959595" size="12" />
+    </button>
+  </view>
+</form>
+
+<block wx:if="{{Swiper}}">
+  <view class="index-header">
+    <swiper class="index-swiper" circular='true' indicator-dots="true" interval="2000" autoplay="true" indicator-color="rgba(255, 255, 255, .2)" indicator-active-color="rgba(255, 255, 255, 1)">
+      <block wx:key="id" wx:for="{{swiperList}}">
+        <swiper-item id="{{item.id}}" index="{{index}}" bindtap="redictDetail">
+          <image wx:if="{{item.thumbnail}}"  src="{{item.thumbnail}}" />
+          <image wx:else mode="aspectFill" src="{{item.meta.thumbnail}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</block>
+<!--Swiper-End-->
+
+<!--下方分类 景点 美食等等-->
+<view class="{{isDisplay}}">
+  <view class="navigation">
+    <block wx:for="{{Navigation}}" wx:key="id">
+      <view class="navigation-item" catchtap="navRedirect" id="{{item.id}}" data-url="{{item.url}}">
+        <view>
+          <image src="{{item.image}}"></image>
+        </view>
+        <view>
+          <text> {{item.name}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+
+
+  <!--打折促销-->
+  <view class='discount'>
+  <view class='dis-fon' >学生特惠</view>
+  <view class='dis-fon' style='margin-left:52%;font-size:30rpx;font-weight:normal'>更多优惠></view>
+  <view class="dis-header">
+    <scroll-view class='dis-scroll' scroll-x="true" style=" white-space:nowrap">
+        <view wx:key="id" wx:for="{{discountList}}" style=" display: inline-block">
+          <image class='dis-image' src='{{item.image}}' catchtap='bookTap' data-id="{{item.id}}"></image>
+          <view class='place-name' catchtap='bookTap' data-id="{{item.id}}">{{item.name}}</view>
+          <view class='price' catchtap='bookTap' data-id="{{item.id}}"><text style="color:red;font-size:26rpx">¥</text> <text style="color:red;font-size:38rpx;  font-weight: bold">{{item.disprice}}</text>起  <text style='color:gray;font-size:28rpx;text-decoration:line-through;'>¥{{item.price}}</text>  </view><button class='hot-button' style='color:red;background-color:#FFEAEF;margin-left:30rpx;'>抢购价</button>
+        </view>
+    </scroll-view>
+
+  </view>
+
+
+
+  
+  </view>
+
+
+<!--热门景点 下方-->
+  <view class="hot">
+    <view class='hot-fon'>人气景点榜</view>
+    <view class='hot-container'>
+    <view class='hot-list'>
+      <view class="hot-preV" wx:key="id" wx:for="{{postsList}}">
+                <view>
+                  <image class='hot-bimg' catchtap='booktap' src="{{item.image}}" data-id="{{item.id}}"></image>
+                </view>
+                  <view class='hot-btext'catchtap='booktap' >
+                  <view class='hot-btitle'  data-id="{{item.id}}"> {{item.name}}</view>
+                  <view class='hot-price'  data-id="{{item.id}}"><text style="color:red;font-size:28rpx">¥</text> <text style="color:red;font-size:45rpx;  font-weight: bold">{{item.price}}</text> 起   </view>
+                  <view class='hot-bview'><button class='hot-button' style='color:red;background-color:#FFEAEF'>学生优惠</button><button class='hot-button' style='color:gray;background-color:#eee'>随买随用</button></view>
+                  <view class='hot-msg'  data-id="{{item.id}}">"{{item.msg}}"</view>
+                </view>
+
+      </view>
+      <view class='hot-line' ></view>
+      <view class='hot-line' style='margin-top:639rpx' ></view>
+      <view class='hot-line' style='margin-top:955rpx' ></view>
+      <view class='hot-more'>完整榜单></view>
+    </view>
+    </view>
+
+  </view>
+
+
+
+
+
+
+
+
+
+
+</view>

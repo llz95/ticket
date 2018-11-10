@@ -1,0 +1,19 @@
+
+<!--pages/page/page.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<import src="../../templates/header.wxml"/>
+<import src="../../templates/footer.wxml" />
+<view class="container">
+  <template is="Header"/>
+  <view class="content-article">
+    <view class="entry-title">
+      {{page.title.rendered}}
+    </view>
+    <view class="entry-summary">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+  </view>
+  <view class="ditail-copyright">
+    <template is="Footer" />
+  </view>
+</view>

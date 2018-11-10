@@ -1,0 +1,301 @@
+
+ /**pages/index/index.wxss**/
+ page{
+   background-color: #eee
+ }
+.index-container {
+  background-color: #fff;
+}
+.index-header {
+  text-align: center;
+  font-weight: normal;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #eee;
+  margin-top: -5rpx;
+  margin-bottom: 15rpx;
+   background-color:  #eee;
+   border-radius: 20rpx;
+}
+/*   index   swiper  */
+swiper .index-swiper {
+  position: relative;
+  height: 220rpx;
+  
+}
+swiper .swiper-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+
+swiper image {
+  display: block;
+  width: 96%;
+  margin-left: 2%;
+  height: 100%;
+  border-radius: 20rpx;
+}
+swiper .swiper-desc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  color: #fff;
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: 30rpx;
+  line-height: 160rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-shadow: 0px 0px 16px #646d75;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0)0%, rgba(63, 76, 88, 0.3)100%);
+}
+/*   index   swiper  end  */
+.search-button {
+  border-left: 0 !important;
+  border-top: 1px solid #fff !important;
+  border-right: 1px solid #fff !important;
+  border-bottom: 1px solid #fff !important;
+  background-color: #fff !important;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  color: #296fd0 !important;
+  width: 20%;
+  margin: 0 !important;
+  box-shadow: 1px 1px 6px #eee;
+}
+.search-button icon {
+  position: absolute;
+  margin: 28rpx 16rpx;
+}
+.search-input {
+  background-color: #fff;
+  padding: 16rpx 0 16rpx 32rpx;
+  min-height: 1rem;
+  font-size: 30rpx;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0 !important;
+  height: 48rpx;
+  width: 80%;
+  text-align: left;
+  box-shadow: 1px 1px 6px #eee;
+}
+.share-button {
+  border: 1px solid #eee !important;
+  color: #296fd0 !important;
+  left: 10rpx;
+  height: 100rpx;
+  width: 200rpx;
+}
+.search-pancel {
+  display: flex;
+  flex-direction: row;
+  background-color: #eee;
+  padding: 24rpx 24rpx;
+}
+.search-pancel image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 20rpx;
+  vertical-align: middle;
+}
+.navigation {
+  display: flex;
+  padding: 10rpx 0;
+  background: #fff;
+  justify-content: space-around;
+  margin: 10rpx 10rpx;
+  border-radius: 20rpx;
+}
+.navigation-item {
+  text-align: center;
+  border-radius: 20rpx;
+}
+.navigation-item image {
+  width: 81rpx;
+  height: 81rpx;
+}
+.navigation-item text {
+  color: #333333;
+  line-height: 16rpx;
+  font-size: 12px;
+  font-weight: 500;
+}
+.error {
+  margin-top:120rpx!important;
+  margin-bottom:120rpx;
+}
+
+.hot{
+  background-color:#eee ;
+
+
+}
+
+.hot-fon{
+
+  font-size: 38rpx;
+  font-weight: bolder;
+  margin: 0rpx 10rpx;
+  background-color: white;
+    border-top-right-radius:20rpx;
+  border-top-left-radius:20rpx;
+
+}
+.hot-container{
+  background-color:#F0F0F0;
+}
+.hot-list{
+  background-color: white;
+  margin: 0rpx 10rpx;
+  height:1050rpx;
+  border-bottom-right-radius:20rpx;
+  border-bottom-left-radius:20rpx;
+    display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: column;
+}
+
+.hot-preV {
+  height: 290rpx;
+  /* background-color: red; */
+  margin-top: 40rpx;
+  /* height: 100rpx; */
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: row;
+
+}
+.hot-bimg {
+  width: 300rpx;
+  height: 260rpx;
+  /* justify-content: center; */
+  margin: 0 15rpx;
+  border-radius: 20rpx;
+}
+.hot-btext{
+    margin-left: 0rpx;
+  height: 280rpx;
+  width: 450rpx;
+  /* background-color: yellow */
+}
+.hot-btitle{
+  margin-top: 10rpx;
+font-weight: bold
+}
+
+.hot-price{
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  /* background-color: yellowgreen */
+}
+
+.hot-msg{
+  font-size: 26rpx;
+  color: gray;
+  margin-top: 10rpx;
+  text-align: center;
+ display: -webkit-box; 
+  /*规定子元素的排列方向 */
+  -webkit-box-orient: vertical; 
+   /*限制文本显示的行数  */
+  -webkit-line-clamp:2;
+  /*实现多余的文字隐藏并用省略号来代表被隐藏的文字  */
+  overflow: hidden;
+  text-overflow:ellipsis;
+  /* background-color: yellowgreen; */
+  /* width: 380rpx; */
+}
+
+.hot-button{
+  display: inline-block;
+  margin-top: 5rpx;
+  margin-left: 7rpx;
+  padding-left: 10rpx;
+  padding-right:10rpx; 
+  height: 42rpx;
+  font-size: 22rpx;
+  width: auto;
+    line-height: 42rpx;
+  text-align: center;
+
+
+}
+
+.hot-line{
+  position: absolute;
+  margin-top: 320rpx;
+  height: 6rpx;
+  width: 90%;
+  margin-left: 18rpx;
+  /* background-color:#F0F1EC */
+  background-color: #eee
+}
+.hot-more{
+  margin-top: 20rpx;
+  text-align: center;
+  color:gray;
+  font-size: 33rpx;
+}
+.discount{
+  background-color: white;
+  margin: 20rpx 10rpx;
+
+}
+.dis-fon{
+  display: inline-block;
+  font-size: 38rpx;
+  font-weight: bolder;
+  margin: 0rpx 10rpx;
+}
+
+.dis-image{
+
+  margin-top: 15rpx;
+  height: 220rpx;
+  width: 370rpx;
+  border-radius: 8%;
+  border: 3rpx solid #EEE;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+
+}
+
+.place-name{
+text-align: center;
+   margin-left: 25rpx;
+  margin-right: 25rpx;
+color: black;
+  font-size: 32rpx;
+ text-overflow: ellipsis;
+ overflow: hidden;
+ -webkit-box-orient: vertical;
+ -webkit-line-clamp:2;
+ /* background-color: yellow */
+}
+.price{
+
+display: inline-block;
+   margin-left: 45rpx;
+  margin-right: 25rpx;
+color: black;
+  font-size: 28rpx;
+ text-overflow: ellipsis;
+ overflow: hidden;
+ -webkit-box-orient: vertical;
+ -webkit-line-clamp:2;
+ /* background-color: yellowgreen; */
+ 
+
+}

@@ -1,0 +1,4 @@
+
+<template name="Footer">
+<view> © 技术支持：suda</view>
+</template>
